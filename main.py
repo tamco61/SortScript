@@ -1,30 +1,31 @@
 from os import listdir, rename, mkdir
 
-# исключения которые не нужно трогать
+# this files script don't touch
 exceptions = ['main.py', 'sortScript.py']
 
 
-# Функция, которая создаёт папки
+# function, that creates folder
 def create_folder():
     for i in folders:
         if i not in list(listdir()):
             mkdir(i)
 
-
+# formats
 image_formats = ['jpg', 'png']
 video_formats = ['mp4']
 audio_formats = ['mp3']
 
+# folders
 folder_audio = 'audio'
 folder_video = 'video'
 folder_image = 'image'
 folder_other = 'other'
 folders = [folder_audio, folder_image, folder_video, folder_other]
 
-# Получение файлов в директории
+# getting files in directory
 lst = list(listdir())
 
-# Сортировка файлов в директории
+# sorting files in directory
 lst_video = list()
 lst_image = list()
 lst_audio = list()
@@ -45,10 +46,10 @@ for file in lst:
         else:
             lst_other.append(file)
 
-# создание папок
+# creating folders
 create_folder()
 
-# перенос файлов
+# move files
 for i in range(len(folders)):
     folder = folders[i]
     for r in range(len(files[i])):
